@@ -228,16 +228,22 @@ class AppTextStyles {
 
 // Profile View
 
-  static final TextStyle profileTitleStyle = GoogleFonts.poppins(
+  static final TextStyle profileUsernameStyle = GoogleFonts.poppins(
     color: AppColors.spanishGray,
-    fontWeight: FontWeight.w400,
-    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
   );
 
-  static final TextStyle profileValueStyle = GoogleFonts.poppins(
+  static final TextStyle profileNameStyle = GoogleFonts.poppins(
     color: Colors.black,
-    fontWeight: FontWeight.w500,
-    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    fontSize: 24,
+  );
+
+  static final TextStyle profileTileStyle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontWeight: FontWeight.w400,
+    fontSize: 18,
   );
 
 // Adress View

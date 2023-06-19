@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:toni/product/profile/view/profile_view.dart';
 import '../../../core/base/util/app_colors.dart';
-import '../../../core/component/appbar/main_app_bar.dart';
-import '../../../core/constants/navigation/navigation_constants.dart';
-import '../../../core/navigation/navigation_service.dart';
 import '../../home/view/home_view.dart';
 
 class MainPageView extends StatefulWidget {
@@ -19,8 +16,10 @@ class _MainPageViewState extends State<MainPageView> {
   int currentIndex = 0;
   bool isLoading = true;
 
-  List<Widget> pages = [
+  List<Widget> pages = const [
     HomeView(),
+    ProfileView(),
+    ProfileView(),
   ];
 
   @override
