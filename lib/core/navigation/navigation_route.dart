@@ -15,12 +15,12 @@ class NavigationRoute {
     switch (args.name) {
       case NavigationConstants.LOGIN_VIEW:
         return normalNavigate(
-          const LoginView(),
+          LoginView(),
         );
 
       case NavigationConstants.REGISTER_VIEW:
         return normalNavigate(
-          const RegisterView(),
+          RegisterView(),
         );
 
       case NavigationConstants.MAIN_PAGE_VIEW:
