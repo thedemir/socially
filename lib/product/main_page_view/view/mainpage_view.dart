@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:toni/product/profile/view/profile_view.dart';
+import 'package:toni/product/search/view/search_view.dart';
 import '../../../core/base/util/app_colors.dart';
 import '../../home/view/home_view.dart';
 
@@ -18,7 +19,7 @@ class _MainPageViewState extends State<MainPageView> {
 
   List<Widget> pages = const [
     HomeView(),
-    ProfileView(),
+    SearchView(),
     ProfileView(),
   ];
 

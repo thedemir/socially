@@ -42,6 +42,20 @@ class AppTextStyles {
     fontSize: 14,
   );
 
+  // Profile Card
+
+  static final TextStyle profileCardTitle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontWeight: FontWeight.w700,
+    fontSize: 20,
+  );
+
+  static final TextStyle profileCardSubTitle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontWeight: FontWeight.w400,
+    fontSize: 13,
+  );
+
 // OnBoard View
 
   static final TextStyle onBoardButtonStyle = GoogleFonts.poppins(
