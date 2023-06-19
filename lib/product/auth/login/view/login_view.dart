@@ -48,10 +48,13 @@ class LoginView extends StatelessWidget {
             const Spacer(),
             CupertinoButton(
               child: Text(
-                LoginItem.forgetPasswordButtonText,
+                "Parolamı Unuttum",
                 style: AppTextStyles.loginButtonStyle,
               ),
-              onPressed: () {},
+              onPressed: () {
+                NavigationService.instance.navigateToPage(
+                    path: NavigationConstants.FORGET_PASSWORD_VIEW);
+              },
             ),
             const Spacer(flex: 2),
             MainButton(

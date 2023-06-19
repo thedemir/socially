@@ -1,7 +1,7 @@
 class NavigationConstants {
   static const String LOGIN_VIEW = "/login";
   static const String REGISTER_VIEW = "/register";
-
+  static const String FORGET_PASSWORD_VIEW = "/forget-password";
   static const String AGREEMENT_VIEW = "/agreement";
   static const String MAIN_PAGE_VIEW = "/main-page";
   static const String MENU_VIEW = "/menu";

@@ -56,6 +56,34 @@ class AppTextStyles {
     fontSize: 13,
   );
 
+  // Post Card
+
+  static final TextStyle postCardTitle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+    fontSize: 18,
+  );
+
+  static final TextStyle postCardSubTitle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+
+  static final TextStyle postCardCount = GoogleFonts.poppins(
+    color: Colors.black,
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+
+  // Notification View
+
+  static final TextStyle notificationsTitle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontWeight: FontWeight.w700,
+    fontSize: 24,
+  );
+
 // OnBoard View
 
   static final TextStyle onBoardButtonStyle = GoogleFonts.poppins(

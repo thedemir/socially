@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:toni/core/base/util/app_colors.dart';
 
 class MainBackButton extends StatelessWidget {
   const MainBackButton({super.key});
@@ -9,7 +10,7 @@ class MainBackButton extends StatelessWidget {
       padding: EdgeInsets.zero,
       child: Icon(
         CupertinoIcons.back,
-        color: CupertinoColors.black,
+        color: AppColors.purple,
       ),
       onPressed: () {
         Navigator.pop(context);

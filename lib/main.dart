@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         onGenerateRoute: NavigationRoute.instance.genarateRoute,
         navigatorKey: NavigationService.instance.navigatorKey,
+        debugShowCheckedModeBanner: false,
         darkTheme: ThemeData.dark(),
         theme: ThemeData(
           primarySwatch: Colors.blue,

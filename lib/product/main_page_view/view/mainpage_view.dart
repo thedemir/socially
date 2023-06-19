@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:toni/product/notification/view/notification_view.dart';
 import 'package:toni/product/profile/view/profile_view.dart';
 import 'package:toni/product/search/view/search_view.dart';
 import '../../../core/base/util/app_colors.dart';
@@ -20,6 +21,7 @@ class _MainPageViewState extends State<MainPageView> {
   List<Widget> pages = const [
     HomeView(),
     SearchView(),
+    NotificationsView(),
     ProfileView(),
   ];
 
@@ -63,12 +65,22 @@ class _MainPageViewState extends State<MainPageView> {
               showSelectedLabels: false,
               items: const [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home_rounded), label: "Home"),
+                    icon: Icon(Icons.home_rounded), label: "Ana Sayfa"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.search_rounded), label: "Home"),
+                    icon: Icon(Icons.search_rounded), label: "Arama"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.person_rounded), label: "Home"),
+                    icon: Icon(Icons.notifications_rounded),
+                    label: "Bildirimler"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.person_rounded), label: "Profil"),
               ]),
+          floatingActionButton: currentIndex == 0
+              ? FloatingActionButton(
+                  onPressed: () {},
+                  child: Icon(Icons.add),
+                  backgroundColor: AppColors.purple,
+                )
+              : null,
         );
       },
     );

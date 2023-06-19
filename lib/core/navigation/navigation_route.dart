@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:toni/product/auth/forget_password/view/forget_password_view.dart';
 import 'package:toni/product/main_page_view/view/mainpage_view.dart';
 
 import '../../product/auth/login/view/login_view.dart';
@@ -16,6 +17,10 @@ class NavigationRoute {
       case NavigationConstants.LOGIN_VIEW:
         return normalNavigate(
           LoginView(),
+        );
+      case NavigationConstants.FORGET_PASSWORD_VIEW:
+        return normalNavigate(
+          ForgetPasswordView(),
         );
 
       case NavigationConstants.REGISTER_VIEW:
