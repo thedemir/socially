@@ -13,6 +13,16 @@ class ProfileCard extends StatelessWidget {
   final UserModel userData;
   void Function()? followOnPressed;
 
+  String shortName(String fullName) {
+    List<String> parts = fullName.split(" ");
+    if (parts.length > 1) {
+      String kisaltma = parts[0] + " " + parts[1].substring(0, 1);
+      return kisaltma;
+    } else {
+      return fullName;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -31,7 +41,7 @@ class ProfileCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    userData.name,
+                    shortName(userData.name),
                     style: AppTextStyles.profileCardTitle,
                   ),
                   Text("${userData.followerCount} Takipçi",
