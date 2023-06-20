@@ -63,7 +63,7 @@ class LoginView extends StatelessWidget {
                 onTap: () async {
                   showDialog(
                     context: context,
-                    builder: (context) => AppCircularProgress(),
+                    builder: (context) => const AppCircularProgress(),
                   );
                   await Provider.of<UserProvider>(context, listen: false)
                       .getProfileDetail();

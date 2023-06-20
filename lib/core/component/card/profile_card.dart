@@ -1,22 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:toni/product/search/model/user_model.dart';
 import '../../base/util/app_colors.dart';
 import '../../base/util/app_text_styles.dart';
 
 class ProfileCard extends StatelessWidget {
-  ProfileCard(
-      {super.key,
-      required this.name,
-      required this.followerCount,
-      required this.image,
-      this.followOnPressed,
-      required this.isOnline,
-      required this.isFollowed});
-  final String name;
-  final int followerCount;
-  final bool isOnline;
-  final bool isFollowed;
-  final String image;
+  ProfileCard({
+    super.key,
+    required this.userData,
+    this.followOnPressed,
+  });
+  final UserModel userData;
   void Function()? followOnPressed;
 
   @override
@@ -28,7 +22,7 @@ class ProfileCard extends StatelessWidget {
               flex: 3,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.network(image))),
+                  child: Image.network(userData.profilePhotoUrl))),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,20 +31,20 @@ class ProfileCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    userData.name,
                     style: AppTextStyles.profileCardTitle,
                   ),
-                  Text("$followerCount Takipçi",
+                  Text("${userData.followerCount} Takipçi",
                       style: AppTextStyles.profileCardSubTitle),
                 ],
               ),
               CupertinoButton(
                 padding: EdgeInsets.zero,
+                onPressed: followOnPressed,
                 child: Icon(
-                  isFollowed ? Icons.check : Icons.add,
+                  userData.isFollowed ? Icons.check : Icons.add,
                   color: AppColors.purple,
                 ),
-                onPressed: followOnPressed,
               )
             ],
           ),

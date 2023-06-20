@@ -84,7 +84,7 @@ class AppListtile extends StatelessWidget {
           ),
           onTap: onTap,
         ),
-        Divider()
+        const Divider()
       ]),
     );
     ;

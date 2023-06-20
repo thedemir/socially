@@ -51,7 +51,7 @@ class _MainPageViewState extends State<MainPageView> {
       builder: (context, userState, child) {
         return Scaffold(
           backgroundColor: AppColors.cultured,
-          body: isLoading ? AppCircularProgress() : pages[currentIndex],
+          body: isLoading ? const AppCircularProgress() : pages[currentIndex],
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: currentIndex,
               onTap: (index) async {
@@ -89,7 +89,7 @@ class _MainPageViewState extends State<MainPageView> {
                           top: Radius.circular(32),
                         ),
                       ),
-                      builder: (context) => PostShareModal(),
+                      builder: (context) => const PostShareModal(),
                     );
                   },
                   backgroundColor: AppColors.purple,
@@ -121,7 +121,7 @@ class PostShareModal extends StatelessWidget {
           children: [
             Row(
               children: [
-                Spacer(),
+                const Spacer(),
                 CupertinoButton(
                   child: Text(
                     "Paylaş",

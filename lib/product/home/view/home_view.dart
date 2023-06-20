@@ -18,22 +18,7 @@ class HomeView extends StatelessWidget {
           child: Column(
             children: [
               const TopSpace(),
-              Expanded(
-                child: Row(
-                  children: [
-                    Image.asset(
-                      HomeItems.iconPath,
-                      width: 32,
-                    ),
-                    const Spacer(),
-                    CupertinoButton(
-                      child: const Icon(Icons.settings_rounded,
-                          color: Colors.grey),
-                      onPressed: () {},
-                    )
-                  ],
-                ),
-              ),
+              _HomeAppBar(),
               Expanded(
                 flex: 10,
                 child: ListView.builder(
@@ -55,6 +40,31 @@ class HomeView extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class _HomeAppBar extends StatelessWidget {
+  const _HomeAppBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Row(
+        children: [
+          Image.asset(
+            HomeItems.iconPath,
+            width: 32,
+          ),
+          const Spacer(),
+          CupertinoButton(
+            child: const Icon(HomeItems.settingsIcon, color: Colors.grey),
+            onPressed: () {},
+          )
+        ],
+      ),
     );
   }
 }

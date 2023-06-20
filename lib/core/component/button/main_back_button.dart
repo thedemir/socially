@@ -8,7 +8,7 @@ class MainBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoButton(
       padding: EdgeInsets.zero,
-      child: Icon(
+      child: const Icon(
         CupertinoIcons.back,
         color: AppColors.purple,
       ),

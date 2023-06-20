@@ -39,47 +39,7 @@ class _SearchViewState extends State<SearchView> {
             child: Column(
               children: [
                 const TopSpace(),
-                Expanded(
-                    child: Column(
-                  children: [
-                    Expanded(child: Image.asset(SearchItems.iconPath)),
-                    const SizedBox(height: 16),
-                    Expanded(
-                        child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 7,
-                          child: SearchTextField(
-                            controller: TextEditingController(),
-                            hintText: SearchItems.hintText,
-                            onChanged: (value) {
-                              socialState.getUserData();
-                            },
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: CupertinoButton(
-                              padding: EdgeInsets.zero,
-                              onPressed: () {},
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: AppColors.purple,
-                                    borderRadius: BorderRadius.circular(9)),
-                                padding: const EdgeInsets.all(8),
-                                child: SvgPicture.asset(
-                                  SearchItems.iconFilterPath,
-                                  width: 24,
-                                  height: 24,
-                                ),
-                              )),
-                        )
-                      ],
-                    ))
-                  ],
-                )),
+                _SearchBar(),
                 const SizedBox(height: 16),
                 Expanded(
                     flex: 5,
@@ -93,12 +53,7 @@ class _SearchViewState extends State<SearchView> {
                               mainAxisSpacing: 8),
                       itemBuilder: (context, index) {
                         return ProfileCard(
-                          image: socialState.usersData![index].profilePhotoUrl,
-                          name: shortName(socialState.usersData![index].name),
-                          followerCount:
-                              socialState.usersData![index].followerCount,
-                          isFollowed: socialState.usersData![index].isFollowed,
-                          isOnline: socialState.usersData![index].isOnline,
+                          userData: socialState.usersData![index],
                           followOnPressed: () {
                             socialState
                                 .followUser(socialState.usersData![index].id);
@@ -112,6 +67,57 @@ class _SearchViewState extends State<SearchView> {
         );
       },
     );
+  }
+}
+
+class _SearchBar extends StatelessWidget {
+  const _SearchBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+        child: Column(
+      children: [
+        Expanded(child: Image.asset(SearchItems.iconPath)),
+        const SizedBox(height: 16),
+        Expanded(
+            child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 7,
+              child: SearchTextField(
+                controller: TextEditingController(),
+                hintText: SearchItems.hintText,
+                onChanged: (value) {
+                  Provider.of<SocialProvider>(context).getUserData();
+                },
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: CupertinoButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: () {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.purple,
+                        borderRadius: BorderRadius.circular(9)),
+                    padding: const EdgeInsets.all(8),
+                    child: SvgPicture.asset(
+                      SearchItems.iconFilterPath,
+                      width: 24,
+                      height: 24,
+                    ),
+                  )),
+            )
+          ],
+        ))
+      ],
+    ));
   }
 }
 
@@ -136,7 +142,7 @@ class SearchTextField extends StatelessWidget {
         style: AppTextStyles.textFieldTextStyle,
         autofocus: false,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.search_rounded, color: AppColors.purple),
+          prefixIcon: const Icon(Icons.search_rounded, color: AppColors.purple),
           prefixIconColor: AppColors.purple,
           hintText: hintText,
           hintStyle: AppTextStyles.textFieldHintTextStyle,

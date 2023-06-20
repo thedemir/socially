@@ -73,7 +73,7 @@ class RegisterView extends StatelessWidget {
                       passwordConfirmationController.text.isEmpty) {
                     showDialog(
                       context: context,
-                      builder: (context) => CustomDialog(
+                      builder: (context) => const CustomDialog(
                           text: "Boş alanları doldurunuz1", buttonSwitch: 2),
                     );
                   } else {

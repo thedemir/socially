@@ -9,13 +9,13 @@ class SocialProvider extends ChangeNotifier {
   List<PostModel>? postsData;
 
   Future getPostsData() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
     postsData = PostData.postData;
     notifyListeners();
   }
 
   Future getUserData() async {
-    Future.delayed(Duration(seconds: 1));
+    Future.delayed(const Duration(seconds: 1));
     usersData = UsersData.usersData;
     notifyListeners();
   }
