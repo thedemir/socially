@@ -18,16 +18,6 @@ class SearchView extends StatefulWidget {
 }
 
 class _SearchViewState extends State<SearchView> {
-  String shortName(String fullName) {
-    List<String> parts = fullName.split(" ");
-    if (parts.length > 1) {
-      String kisaltma = parts[0] + " " + parts[1].substring(0, 1);
-      return kisaltma;
-    } else {
-      return fullName;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
