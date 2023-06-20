@@ -9,11 +9,15 @@ class ProfileCard extends StatelessWidget {
       required this.name,
       required this.followerCount,
       required this.image,
-      this.onPressed});
+      this.followOnPressed,
+      required this.isOnline,
+      required this.isFollowed});
   final String name;
   final int followerCount;
+  final bool isOnline;
+  final bool isFollowed;
   final String image;
-  void Function()? onPressed;
+  void Function()? followOnPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +47,10 @@ class ProfileCard extends StatelessWidget {
               CupertinoButton(
                 padding: EdgeInsets.zero,
                 child: Icon(
-                  Icons.add,
+                  isFollowed ? Icons.check : Icons.add,
                   color: AppColors.purple,
                 ),
-                onPressed: onPressed,
+                onPressed: followOnPressed,
               )
             ],
           ),

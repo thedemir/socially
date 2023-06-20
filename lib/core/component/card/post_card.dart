@@ -2,10 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:toni/core/base/util/app_colors.dart';
 import 'package:toni/core/base/util/app_text_styles.dart';
+import 'package:toni/product/home/model/post_model.dart';
+
+import '../../../product/search/model/user_model.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard({super.key});
+  PostCard({super.key, required this.postData});
+  final PostModel postData;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,11 @@ class PostCard extends StatelessWidget {
         padding: EdgeInsets.only(bottom: 20),
         child: Container(
           height: size.height * 0.35,
-          padding: EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
               SizedBox(
@@ -26,7 +35,7 @@ class PostCard extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(100),
                         child: Image.network(
-                          "https://pbs.twimg.com/profile_images/1650570383345475585/Bf5FZ6FM_400x400.jpg",
+                          postData.user.profilePhotoUrl,
                           width: size.width * 0.12,
                         ),
                       ),
@@ -35,15 +44,20 @@ class PostCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Nurullah Demir",
+                            postData.user.name,
                             style: AppTextStyles.postCardTitle,
                           ),
                           Text(
-                            "@thedemir",
+                            "@${postData.user.userName}",
                             style: AppTextStyles.postCardSubTitle,
                           ),
                         ],
-                      )
+                      ),
+                      Spacer(),
+                      CupertinoButton(
+                          onPressed: () {},
+                          padding: EdgeInsets.zero,
+                          child: Icon(Icons.more_vert, color: AppColors.purple))
                     ],
                   ),
                 ),
@@ -53,7 +67,7 @@ class PostCard extends StatelessWidget {
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: Image.network(
-                        "https://picsum.photos/600/300",
+                        postData.postPhotoUrl,
                         fit: BoxFit.fitHeight,
                       ))),
               Expanded(
@@ -61,11 +75,12 @@ class PostCard extends StatelessWidget {
                 children: [
                   CupertinoButton(
                     padding: EdgeInsets.zero,
-                    child: const Icon(Icons.favorite, color: Colors.grey),
+                    child: Icon(Icons.favorite,
+                        color: postData.isLiked ? Colors.red : Colors.grey),
                     onPressed: () {},
                   ),
                   Text(
-                    "1.2k",
+                    "${postData.likeCount}",
                     style: AppTextStyles.postCardCount,
                   ),
                 ],

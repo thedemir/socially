@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:toni/core/component/dialog/circular_progress.dart';
 import 'package:toni/product/notification/view/notification_view.dart';
 import 'package:toni/product/profile/view/profile_view.dart';
 import 'package:toni/product/search/view/search_view.dart';
+import 'package:toni/providers/social.dart';
 import '../../../core/base/util/app_colors.dart';
 import '../../home/view/home_view.dart';
 
@@ -27,16 +29,15 @@ class _MainPageViewState extends State<MainPageView> {
 
   @override
   void initState() {
-    if (widget.isLogin) {
-      super.initState();
-      print("çalıştı");
+    super.initState();
+    print("çalıştı");
 
+    Provider.of<SocialProvider>(context, listen: false)
+        .getPostsData()
+        .then((value) {
       setState(() {
         isLoading = false;
       });
-    }
-    setState(() {
-      isLoading = false;
     });
   }
 
@@ -46,8 +47,8 @@ class _MainPageViewState extends State<MainPageView> {
     return Consumer(
       builder: (context, storeState, child) {
         return Scaffold(
-          backgroundColor: Colors.white,
-          body: pages[currentIndex],
+          backgroundColor: AppColors.cultured,
+          body: isLoading ? AppCircularProgress() : pages[currentIndex],
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: currentIndex,
               onTap: (index) {

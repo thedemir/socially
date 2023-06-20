@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:toni/product/auth/login/view/login_view.dart';
 import 'package:toni/providers/auth.dart';
+import 'package:toni/providers/social.dart';
+import 'package:toni/providers/user.dart';
 
 import 'core/navigation/navigation_route.dart';
 import 'core/navigation/navigation_service.dart';
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => AuthProvider()),
+        ChangeNotifierProvider(create: (context) => SocialProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
