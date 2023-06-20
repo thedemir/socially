@@ -35,7 +35,7 @@ class _SearchViewState extends State<SearchView> {
       builder: (context, socialState, child) {
         return Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
             child: Column(
               children: [
                 const TopSpace(),
