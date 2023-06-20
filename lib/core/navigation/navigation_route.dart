@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toni/product/auth/forget_password/view/forget_password_view.dart';
 import 'package:toni/product/main_page_view/view/mainpage_view.dart';
+import 'package:toni/product/profile/view/edit_profile_view.dart';
 
 import '../../product/auth/login/view/login_view.dart';
 import '../../product/auth/register/view/register_view.dart';
@@ -31,6 +32,11 @@ class NavigationRoute {
       case NavigationConstants.MAIN_PAGE_VIEW:
         return normalNavigate(
           const MainPageView(),
+        );
+
+      case NavigationConstants.EDIT_PROFILE:
+        return normalNavigate(
+          EditProfileView(),
         );
 
       default:

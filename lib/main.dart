@@ -1,14 +1,23 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:toni/product/auth/login/view/login_view.dart';
 import 'package:toni/providers/auth.dart';
 import 'package:toni/providers/social.dart';
 import 'package:toni/providers/user.dart';
-
+import 'core/modules/firebase/firebase_api.dart';
 import 'core/navigation/navigation_route.dart';
 import 'core/navigation/navigation_service.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await FireabaseApi().initNotifications();
+
   runApp(const MyApp());
 }
 
@@ -28,7 +37,6 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: NavigationRoute.instance.genarateRoute,
         navigatorKey: NavigationService.instance.navigatorKey,
         debugShowCheckedModeBanner: false,
-        darkTheme: ThemeData.dark(),
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

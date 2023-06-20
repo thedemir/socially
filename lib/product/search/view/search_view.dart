@@ -4,7 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:toni/core/base/util/app_colors.dart';
 import 'package:toni/core/component/card/profile_card.dart';
+import 'package:toni/core/component/dialog/app_dialog.dart';
 import 'package:toni/core/component/space/top_space.dart';
+import 'package:toni/product/search/viewmodel/search_viewmodel.dart';
 import 'package:toni/providers/social.dart';
 import '../../../core/base/util/app_text_styles.dart';
 
@@ -33,14 +35,14 @@ class _SearchViewState extends State<SearchView> {
       builder: (context, socialState, child) {
         return Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
             child: Column(
               children: [
                 const TopSpace(),
                 Expanded(
                     child: Column(
                   children: [
-                    Expanded(child: Image.asset("assets/logo.png")),
+                    Expanded(child: Image.asset(SearchItems.iconPath)),
                     const SizedBox(height: 16),
                     Expanded(
                         child: Row(
@@ -51,7 +53,7 @@ class _SearchViewState extends State<SearchView> {
                           flex: 7,
                           child: SearchTextField(
                             controller: TextEditingController(),
-                            hintText: "Ara",
+                            hintText: SearchItems.hintText,
                             onChanged: (value) {
                               socialState.getUserData();
                             },
@@ -68,7 +70,7 @@ class _SearchViewState extends State<SearchView> {
                                     borderRadius: BorderRadius.circular(9)),
                                 padding: const EdgeInsets.all(8),
                                 child: SvgPicture.asset(
-                                  "assets/icon/filter.svg",
+                                  SearchItems.iconFilterPath,
                                   width: 24,
                                   height: 24,
                                 ),

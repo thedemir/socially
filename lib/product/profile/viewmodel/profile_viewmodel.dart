@@ -11,7 +11,7 @@ class ProfileViewModel {
       title: "Profil Düzenle",
       onTap: () {
         NavigationService.instance
-            .navigateToPage(path: NavigationConstants.NOTIFICATIONS_VIEW);
+            .navigateToPage(path: NavigationConstants.EDIT_PROFILE);
       },
     ),
     ProfileTileModel(

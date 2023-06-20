@@ -6,13 +6,8 @@ import '../../base/util/app_text_styles.dart';
 
 class CustomDialog extends StatelessWidget {
   const CustomDialog(
-      {super.key,
-      required this.text,
-      required this.buttonText,
-      this.ontap,
-      required this.buttonSwitch});
+      {super.key, required this.text, this.ontap, required this.buttonSwitch});
   final String text;
-  final String buttonText;
   final int buttonSwitch; // 1 = yes, 2 = no, 3 = ok
   final void Function()? ontap;
 
@@ -65,7 +60,7 @@ class CustomDialog extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 50, vertical: 10),
                         child: Text(
-                          buttonText,
+                          "Tamam",
                           style: AppTextStyles.mainButtonStyle,
                         ),
                       )))

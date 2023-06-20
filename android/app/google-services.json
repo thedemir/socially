@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "321603824514",
+    "project_id": "toni-7c330",
+    "storage_bucket": "toni-7c330.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321603824514:android:d2abb178c35c829831fd9b",
+        "android_client_info": {
+          "package_name": "com.example.toni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321603824514-3lp71k52ec5g9c5pg0rqrrnocjs93v90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVzyOq7TCuhRPLk0Dp6fBZiZeJV4pIR-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321603824514-3lp71k52ec5g9c5pg0rqrrnocjs93v90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

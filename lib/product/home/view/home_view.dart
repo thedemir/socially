@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:toni/core/component/space/top_space.dart';
+import 'package:toni/product/home/viewmodel/home_viewmodel.dart';
 import 'package:toni/providers/social.dart';
 import '../../../core/component/card/post_card.dart';
 
@@ -21,12 +22,13 @@ class HomeView extends StatelessWidget {
                 child: Row(
                   children: [
                     Image.asset(
-                      "assets/logo.png",
+                      HomeItems.iconPath,
                       width: 32,
                     ),
                     const Spacer(),
                     CupertinoButton(
-                      child: Icon(Icons.settings_rounded, color: Colors.grey),
+                      child: const Icon(Icons.settings_rounded,
+                          color: Colors.grey),
                       onPressed: () {},
                     )
                   ],
@@ -41,6 +43,10 @@ class HomeView extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return PostCard(
                       postData: socialState.postsData![index],
+                      profileOnTap: () {},
+                      likeOnTap: () {
+                        socialState.likePost(socialState.postsData![index].id);
+                      },
                     );
                   },
                 ),

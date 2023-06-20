@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toni/core/base/util/app_text_styles.dart';
-
 import '../../../core/base/util/app_colors.dart';
+import '../viewmodel/notifiaction_viewmodel.dart';
 
 class NotificationsView extends StatelessWidget {
   const NotificationsView({super.key});
@@ -15,10 +14,20 @@ class NotificationsView extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: size.height * 0.08),
-          Text(
-            "Bildirimler",
-            style: AppTextStyles.notificationsTitle,
+          Row(
+            children: [
+              Text(
+                NotificationItems.title,
+                style: AppTextStyles.notificationsTitle,
+              ),
+              const Spacer(),
+              const Icon(
+                NotificationItems.icon,
+                color: AppColors.purple,
+              )
+            ],
           ),
+          const Expanded(child: _EmptyNotificationsView()),
         ],
       ),
     );
@@ -33,7 +42,7 @@ class _EmptyNotificationsView extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Icon(
             Icons.notifications_off,
             size: 80,

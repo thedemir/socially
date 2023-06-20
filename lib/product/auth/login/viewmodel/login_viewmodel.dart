@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 class LoginViewModel {}
 
 class LoginItem {
-  static String imagePath = "assets/images/auth/login_header_image.png";
-  static String title = "Hoş geldiniz!";
-  static String description =
-      "Kullanıcı bilgileriniz ile sisteme giriş yapabilirsiniz.";
+  static String iconPath = "assets/images/logo.png";
   static const IconData emailIcon = Icons.email_outlined;
+  static const String title = "Giriş Yap";
   static const String hintTextEmail = 'E-posta Adresiniz';
   static const IconData passwordIcon = Icons.lock_outline;
   static const String hintTextPassword = 'Parolanız';
